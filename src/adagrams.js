@@ -4,16 +4,16 @@ const Adagrams = {
     "E","E","E","E","E","F","F","I","I","I","I","I","I","I","I","I","J","K","L","L","L","L","M","M","N","N","N","N",
     "N","N","N","O","O","O","O","O","O","O","O","P","P","Q","R","R","R","R","R","R","S","S","S","S","T","T",
     "T","T","T","T","U","U","U","U","V","V","W","W","X","Y","Y","Z"];
-    let drawn_tiles = []
+    let drawn_tiles = [];
     for (let i = 0; i < 10; i++) {
       let rand = tiles.splice(Math.floor(Math.random() * tiles.length), 1)[0];
-      drawn_tiles.push(rand)
+      drawn_tiles.push(rand);
     }
   return drawn_tiles;
   },
   usesAvailableLetters(input, lettersInHand) {
     let letters = lettersInHand.slice();
-    let word = input.split("")
+    let word = input.split("");
     for (let char of word) {
       let letter_index = letters.indexOf(char);
       if (letter_index > -1) {
@@ -27,7 +27,7 @@ const Adagrams = {
   scoreWord(word) {
     let score = 0;
     word = word.toUpperCase();
-    word.split("").forEach(function (letter) {
+    word.split("").forEach((letter) => {
       switch(letter) {
         case 'A':
         case 'E':
@@ -43,7 +43,7 @@ const Adagrams = {
           break;
         case "D":
         case "G":
-          score += 2
+          score += 2;
           break;
         case "B":
         case "C":
