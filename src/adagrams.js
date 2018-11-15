@@ -4,20 +4,20 @@ const Adagrams = {
     "E","E","E","E","E","F","F","I","I","I","I","I","I","I","I","I","J","K","L","L","L","L","M","M","N","N","N","N",
     "N","N","N","O","O","O","O","O","O","O","O","P","P","Q","R","R","R","R","R","R","S","S","S","S","T","T",
     "T","T","T","T","U","U","U","U","V","V","W","W","X","Y","Y","Z"];
-    let drawn_tiles = [];
+    let lettersInHand = [];
     for (let i = 0; i < 10; i++) {
       let rand = tiles.splice(Math.floor(Math.random() * tiles.length), 1)[0];
-      drawn_tiles.push(rand);
+      lettersInHand.push(rand);
     }
-  return drawn_tiles;
+  return lettersInHand;
   },
   usesAvailableLetters(input, lettersInHand) {
     let letters = lettersInHand.slice();
     let word = input.split("");
     for (let char of word) {
-      let letter_index = letters.indexOf(char);
-      if (letter_index > -1) {
-        letters.splice(letter_index, 1);
+      let letterIndex = letters.indexOf(char);
+      if (letterIndex > -1) {
+        letters.splice(letterIndex, 1);
       } else {
         return false;
       }
