@@ -79,12 +79,18 @@ const Adagrams = {
   highestScoreFrom(words) {
     let bestWord = {"word": null, "score": 0};
     for (let word of words) {
-      console.log(this.scoreWord(word))
       if (this.scoreWord(word) > bestWord["score"]){
         bestWord["score"] = this.scoreWord(word)
         bestWord["word"] = word
+      } else if (this.scoreWord(word) == bestWord["score"]) {
+        if (word.length == 10 && bestWord["word"].length != 10) {
+          bestWord["word"] = word
+        } else if (word.length < bestWord["word"].length && bestWord["word"].length != 10) {
+          bestWord["word"] = word
+        }
       }
     }
+    return bestWord;
   }
 };
 

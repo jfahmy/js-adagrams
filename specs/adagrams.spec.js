@@ -98,44 +98,44 @@ describe('Adagrams', () => {
 
       expect(Adagrams.highestScoreFrom(words)).toEqual(correct);
     });
-//
-//     describe('in case of tied score', () => {
-//       const expectTie = (words) => {
-//         const scores = words.map(Adagrams.scoreWord);
-//         const highScore = scores.reduce((h, s) => h < s ? s : h, 0);
-//         const tiedWords = scores.filter((s) => s == highScore);
-//
-//         // Expect at least two tied words
-//         expect(tiedWords.length).toBeGreaterThan(1);
-//       };
-//
-//       it('selects the word with 10 letters', () => {
-//         const words = ['AAAAAAAAAA', 'BBBBBB'];
-//         const correct = { word: 'AAAAAAAAAA', score: Adagrams.scoreWord('AAAAAAAAAA') };
-//         expectTie(words);
-//
-//         expect(Adagrams.highestScoreFrom(words)).toEqual(correct);
-//         expect(Adagrams.highestScoreFrom(words.reverse())).toEqual(correct);
-//       });
-//
-//       it('selects the word with fewer letters when neither are 10 letters', () => {
-//         const words = ['MMMM', 'WWW'];
-//         const correct = { word: 'WWW', score: Adagrams.scoreWord('WWW') };
-//         expectTie(words);
-//
-//         expect(Adagrams.highestScoreFrom(words)).toEqual(correct);
-//         expect(Adagrams.highestScoreFrom(words.reverse())).toEqual(correct);
-//       });
-//
-//       it('selects the first word when both have same length', () => {
-//         const words = ['AAAAAAAAAA', 'EEEEEEEEEE'];
-//         const first = { word: 'AAAAAAAAAA', score: Adagrams.scoreWord('AAAAAAAAAA') };
-//         const second = { word: 'EEEEEEEEEE', score: Adagrams.scoreWord('EEEEEEEEEE') };
-//         expectTie(words);
-//
-//         expect(Adagrams.highestScoreFrom(words)).toEqual(first);
-//         expect(Adagrams.highestScoreFrom(words.reverse())).toEqual(second);
-//       });
-//     });
+
+    describe('in case of tied score', () => {
+      const expectTie = (words) => {
+        const scores = words.map(Adagrams.scoreWord);
+        const highScore = scores.reduce((h, s) => h < s ? s : h, 0);
+        const tiedWords = scores.filter((s) => s == highScore);
+
+        // Expect at least two tied words
+        expect(tiedWords.length).toBeGreaterThan(1);
+      };
+
+      it('selects the word with 10 letters', () => {
+        const words = ['AAAAAAAAAA', 'BBBBBB'];
+        const correct = { word: 'AAAAAAAAAA', score: Adagrams.scoreWord('AAAAAAAAAA') };
+        expectTie(words);
+
+        expect(Adagrams.highestScoreFrom(words)).toEqual(correct);
+        expect(Adagrams.highestScoreFrom(words.reverse())).toEqual(correct);
+      });
+
+      it('selects the word with fewer letters when neither are 10 letters', () => {
+        const words = ['MMMM', 'WWW'];
+        const correct = { word: 'WWW', score: Adagrams.scoreWord('WWW') };
+        expectTie(words);
+
+        expect(Adagrams.highestScoreFrom(words)).toEqual(correct);
+        expect(Adagrams.highestScoreFrom(words.reverse())).toEqual(correct);
+      });
+
+      it('selects the first word when both have same length', () => {
+        const words = ['AAAAAAAAAA', 'EEEEEEEEEE'];
+        const first = { word: 'AAAAAAAAAA', score: Adagrams.scoreWord('AAAAAAAAAA') };
+        const second = { word: 'EEEEEEEEEE', score: Adagrams.scoreWord('EEEEEEEEEE') };
+        expectTie(words);
+
+        expect(Adagrams.highestScoreFrom(words)).toEqual(first);
+        expect(Adagrams.highestScoreFrom(words.reverse())).toEqual(second);
+      });
+    });
   });
 });
